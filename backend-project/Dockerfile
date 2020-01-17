@@ -4,6 +4,8 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get update \
     && apt-get install -y \
     gcc \
+    # required for coveralls
+    git \ 
     wait-for-it \
     && rm -rf /var/lib/apt/lists/*
 

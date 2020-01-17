@@ -1,0 +1,18 @@
+# action.yml
+name: 'python-coveralls-actions'
+description: 'Sends coverage report from Python to coveralls.io'
+inputs:
+  'workingdirectory':
+    description: 'Root path of project'
+    default: '.'
+    required: false
+  token:
+    description: 'Either the GitHub Actions token or the Coveralls repo token'
+    required: true
+  debug:
+    description: "Set 'yes' to enable debugging"
+    default: 'no'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

@@ -11,6 +11,12 @@ test: wait_mysql wait_minio test-django-backend
 test-django-backend:
 	docker-compose run web python manage.py test --keepdb --verbosity=2
 
+coverage-backend:
+	docker-compose run web coverage run --source=small_eod manage.py test --keepdb --verbosity=2
+
+coverage-html:
+	docker-compose run web coverage html
+
 wait_mysql:
 	docker-compose up -d db
 	docker-compose run web bash -c 'wait-for-it db:5432'

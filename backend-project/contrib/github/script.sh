@@ -4,8 +4,10 @@ docker-compose up -d
 make wait_mysql wait_minio migrate
 # verify that user able to create user
 make createsuperuser
+# run side-services
+make wait_mysql wait_minio
 # run test suite
-make test
+make coverage-backend
 # verify integration of services
 sleep 5 # for http server start
 # verify that user able to view login form
